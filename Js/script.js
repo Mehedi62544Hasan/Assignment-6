@@ -116,7 +116,12 @@ toggolSpinner(false);
      }
   
      const displayDetails = (data) =>{
-      console.log(data)
+      console.log(data);
+      const modalName = document.getElementById('exampleModalLabel');
+      modalName.innerText = data.author.name;
+      const modalTaitel = document.getElementById('modalTaitel');
+      modalTaitel.innerText = data.title;
+
      }
  
      
