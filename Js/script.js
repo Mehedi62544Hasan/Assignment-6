@@ -12,29 +12,26 @@ nowsHeadline = (newsList) =>{
     
     div.innerHTML = `
     <p onclick="newsClick('${news.category_id}')">${news.category_name}</p>
-    `
-    newsContainer.appendChild(div)
-
-
- 
+    `;
+    newsContainer.appendChild(div);
 
    });
 }
 
 const newsClick = (category_id) =>{
+  toggolSpinner(true);
     const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`
     fetch(url)
     .then(res => res.json())
     .then(data => authorId(data.data))
     
     const authorId = (persones) =>{
-        // toggolSpinner(true);
-        // console.log(persones)
+      // console.log(persones)
 
-       const categoryQuentity = persones.length
-        console.log(categoryQuentity)
-       const categoryFild = document.getElementById('caregoru-quantity') 
-       categoryFild.innerText = `${categoryQuentity} items found for category Entertainment`
+       const categoryQuentity = persones.length;
+        // console.log(categoryQuentity);
+       const categoryFild = document.getElementById('caregoru-quantity') ;
+       categoryFild.innerText = `${categoryQuentity} items found for category Entertainment`;
 
 
     const personeContainer = document.getElementById('persone-container');
@@ -42,7 +39,7 @@ const newsClick = (category_id) =>{
 
     persones.forEach(persone =>{
         //  console.log(persone)
-    const div = document.createElement('div')
+    const div = document.createElement('div');
     div.classList.add('cardNews')
     div.innerHTML = `
     <div class=" mb-3 p-3" style="max-width: full; baground-color: white;">
@@ -66,7 +63,10 @@ const newsClick = (category_id) =>{
           }</span></p>
           </div>
           <div>
-          <p class="mt-4"><i class="fa fa-solid fa-arrow-right" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></p>
+         
+
+          <button onclick="detailsLoad('${persone._id}')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Read More <i class="fa fa-solid fa-arrow-right" ></i></button>
+
           </div>
           </div>
           </div>
@@ -76,24 +76,24 @@ const newsClick = (category_id) =>{
     </div>
   </div>
     `
-personeContainer.appendChild(div)
+personeContainer.appendChild(div);
 
 
-})       
-}
-toggolSpinner(false)
+})     
+};
+toggolSpinner(false);
 }
  
 
                       // TOGOLSPINNER
 
       const toggolSpinner = isLorder =>{
-    const lorder = document.getElementById('loader')
+    const lorder = document.getElementById('loader');
     if(isLorder){
-        lorder.classList.remove('d-none')
+        lorder.classList.remove('d-none');
     }
     else{
-        lorder.classList.add('d-none')
+        lorder.classList.add('d-none');
     }
     }
 
@@ -107,6 +107,18 @@ toggolSpinner(false)
     }
  
 
+    const detailsLoad = (newsid) =>{
+      const url = `https://openapi.programming-hero.com/api/news/${newsid}`;
+      
+      fetch(url)
+      .then(res =>res.json())
+      .then(data => displayDetails(data.data[0]))
+     }
+  
+     const displayDetails = (data) =>{
+      console.log(data)
+     }
  
+     
 
  
