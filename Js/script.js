@@ -4,7 +4,7 @@ fetch(url)
 .then(data => nowsHeadline(data.data.news_category))
 
 nowsHeadline = (newsList) =>{
-    // console.log(newsList)
+    console.log(newsList)
     const newsContainer = document.getElementById('news-container');
    newsList.forEach(news => {
     // console.log(news)
@@ -124,6 +124,6 @@ toggolSpinner(false);
 
      }
  
-     
+     newsClick('08')
 
  
