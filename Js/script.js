@@ -26,13 +26,17 @@ const newsClick = (category_id) =>{
     fetch(url)
     .then(res => res.json())
     .then(data => authorId(data.data))
-
+    
     const authorId = (persones) =>{
+        // toggolSpinner(true);
         // console.log(persones)
+
     const personeContainer = document.getElementById('persone-container');
     personeContainer.innerText = '';
+
     persones.forEach(persone =>{
-        console.log(persone)
+        modalFunction(persone)
+        // console.log(persone)
     const div = document.createElement('div')
     div.classList.add('cardNews')
     div.innerHTML = `
@@ -56,8 +60,7 @@ const newsClick = (category_id) =>{
               <p class="mt-4" > <i class="fa fa-light fa-eye"></i> <span>${persone.total_view}</span></p> 
               </div> 
               <div>
-               <p class="mt-4"><i class ="fa fa-solid fa-arrow-right"></i>
-               </p>
+              <p onclick="modalLoadData('${persone}')" class="mt-4"><i class ="fa fa-solid fa-arrow-right" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i></p>
                 </div> 
                 </div> 
                 </div>
@@ -68,26 +71,35 @@ const newsClick = (category_id) =>{
   </div>
     `
 personeContainer.appendChild(div)
-    })
-        
-    }
+
+
+})       
+}
+toggolSpinner(false)
 }
  
+
+                      // TOGOLSPINNER
+
+      const toggolSpinner = isLorder =>{
+    const lorder = document.getElementById('loader')
+    if(isLorder){
+        lorder.classList.remove('d-none')
+    }
+    else{
+        lorder.classList.add('d-none')
+    }
+    }
+
+
+    // const modalLoadData = dataModal =>{
+    //     console.log(dataModal)
+    // }
+
+
+    const modalFunction = modal1 =>{
+        console.log(modal1);
+        // const modalTitel = document.getElementById('staticBackdropLabel');
+        // modalTitel.innerText = modal1;
+    }
  
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const url1 = 'https://openapi.programming-hero.com/api/news/category/01'
-// fetch(url1)
-// .then(res => res.json())
-// .then(data => console.log(data))
