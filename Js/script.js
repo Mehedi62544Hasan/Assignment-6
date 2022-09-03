@@ -11,7 +11,7 @@ nowsHeadline = (newsList) =>{
     const div = document.createElement('div');
     
     div.innerHTML = `
-    <p onclick="newsClick(${news.category_id})">${news.category_name}</p>
+    <p onclick="newsClick('${news.category_id}')">${news.category_name}</p>
     `
     newsContainer.appendChild(div)
 
@@ -21,8 +21,8 @@ nowsHeadline = (newsList) =>{
    });
 }
 
-const newsClick = (newsId) =>{
-    const url = 'https://openapi.programming-hero.com/api/news/category/01'
+const newsClick = (category_id) =>{
+    const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`
     fetch(url)
     .then(res => res.json())
     .then(data => authorId(data.data))
@@ -34,31 +34,45 @@ const newsClick = (newsId) =>{
     persones.forEach(persone =>{
         console.log(persone)
     const div = document.createElement('div')
+    div.classList.add('cardNews')
     div.innerHTML = `
-    <div class="card mb-3" style="max-width: full;">
+    <div class=" mb-3 p-3" style="max-width: full; baground-color: white;">
     <div class="row g-0">
-      <div class="col-md-4">
-        <img src="..." class="img-fluid rounded-start" alt="...">
+      <div class="col-md-4 ">
+        <img src="${persone.image_url}" class="img-fluid w-100 h-100 rounded-start" alt="...">
       </div>
-      <div class="col-md-8">
+
+      <div class="col-md-8 ps-4">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <h5 class="card-title">${persone.author.name}</h5>
+          <p class="card-text">${persone.details.slice(0, 300)}...</p>
+
+          <div class="footer-container d-flex justify-content-between align-items-center text-center">  
+          <div class="d-flex justify-content-between align-items-center"> 
+          <img src= "${persone.author.img}" style="width: 40px ; height: 40px; border-radius: 20px;" alt="">
+           <p class="ms-2 text-center mt-3" >${persone.author.name}</p>
+            </div>
+             <div >
+              <p class="mt-4" > <i class="fa fa-light fa-eye"></i> <span>${persone.total_view}</span></p> 
+              </div> 
+              <div>
+               <p class="mt-4"><i class ="fa fa-solid fa-arrow-right"></i>
+               </p>
+                </div> 
+                </div> 
+                </div>
+                 </div>
         </div>
       </div>
     </div>
   </div>
     `
 personeContainer.appendChild(div)
-
-
     })
         
-
-
     }
 }
+ 
  
 
 

@@ -1,4 +1,9 @@
 .mail-nap:hover, .home-nap:hover, .blog-nap:hover{
     color: rgb(81, 81, 232);
 }
-
+.cardNews{
+    background-color: #FFFFFF;
+}
+body{
+    background-color: #F6F6F6;
+}
