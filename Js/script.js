@@ -44,8 +44,8 @@ const newsClick = (category_id) =>{
 
       <div class="col-md-8 ps-4">
         <div class="card-body">
-          <h5 class="card-title">${persone.author.name}</h5>
-          <p class="card-text">${persone.details.slice(0, 300)}...</p>
+          <h5 class="card-title mb-3">${persone.title}</h5>
+          <p class="card-text"><small>${persone.details.slice(0, 300)}...</small> </p>
 
           <div class="footer-container d-flex justify-content-between align-items-center text-center">  
           <div class="d-flex justify-content-between align-items-center"> 
