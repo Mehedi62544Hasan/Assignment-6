@@ -31,12 +31,17 @@ const newsClick = (category_id) =>{
         // toggolSpinner(true);
         // console.log(persones)
 
+       const categoryQuentity = persones.length
+        console.log(categoryQuentity)
+       const categoryFild = document.getElementById('caregoru-quantity') 
+       categoryFild.innerText = `${categoryQuentity} items found for category Entertainment`
+
+
     const personeContainer = document.getElementById('persone-container');
     personeContainer.innerText = '';
 
     persones.forEach(persone =>{
-        modalFunction(persone)
-        // console.log(persone)
+        //  console.log(persone)
     const div = document.createElement('div')
     div.classList.add('cardNews')
     div.innerHTML = `
@@ -51,20 +56,21 @@ const newsClick = (category_id) =>{
           <h5 class="card-title mb-3">${persone.title}</h5>
           <p class="card-text"><small>${persone.details.slice(0, 300)}...</small> </p>
 
-          <div class="footer-container d-flex justify-content-between align-items-center text-center">  
-          <div class="d-flex justify-content-between align-items-center"> 
-          <img src= "${persone.author.img}" style="width: 40px ; height: 40px; border-radius: 20px;" alt="">
-           <p class="ms-2 text-center mt-3" >${persone.author.name}</p>
-            </div>
-             <div >
-              <p class="mt-4" > <i class="fa fa-light fa-eye"></i> <span>${persone.total_view}</span></p> 
-              </div> 
-              <div>
-              <p onclick="modalLoadData('${persone}')" class="mt-4"><i class ="fa fa-solid fa-arrow-right" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i></p>
-                </div> 
-                </div> 
-                </div>
-                 </div>
+          <div class="footer-container d-flex justify-content-between align-items-center text-center">
+          <div class="d-flex justify-content-between align-items-center" >
+          <img src="${persone.author.img}" style="width: 40px ; height: 40px; border-radius: 20px;" alt="">
+          <p class="ms-2 text-center mt-3" >${persone.author.name}</p>
+          </div>
+          <div >
+          <p class="mt-4" ><i class="fa fa-light fa-eye"></i> <span>${persone.total_view
+          }</span></p>
+          </div>
+          <div>
+          <p class="mt-4"><i class="fa fa-solid fa-arrow-right" data-bs-toggle="modal" data-bs-target="#exampleModal"></i></p>
+          </div>
+          </div>
+          </div>
+          </div>
         </div>
       </div>
     </div>
@@ -92,14 +98,15 @@ toggolSpinner(false)
     }
 
 
-    // const modalLoadData = dataModal =>{
-    //     console.log(dataModal)
-    // }
-
+     
 
     const modalFunction = modal1 =>{
         console.log(modal1);
-        // const modalTitel = document.getElementById('staticBackdropLabel');
-        // modalTitel.innerText = modal1;
+        const modalTitel = document.getElementById('staticBackdropLabel');
+        modalTitel.innerText = modal1;
     }
+ 
+
+ 
+
  
