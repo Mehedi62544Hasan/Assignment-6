@@ -19,13 +19,13 @@ body{
     font-weight: 800;
  }
  #loaderId{
-    color:rgb(245, 128, 191)
+    color:rgb(81, 81, 232)
  }
  #loaderId:hover{
-    color: rgb(81, 81, 232);
+    color:rgb(245, 128, 191) ;
  }
 
-
+ 
  .sortSpan{
     font-weight: 100;
     padding: 8px;

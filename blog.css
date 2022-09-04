@@ -2,6 +2,14 @@ body{
     background-color: #f6f6f6;
     font-family: 'Roboto', sans-serif;
 }
+.nave-home{
+    color: #5D5FEF;
+    font-size: 15px;
+    font-weight: 600;
+}
+.nave-home:hover{
+    color: #5D5FEF;
+}
 #question{
     font-family: 'Playfair Display', serif;
     font-size: 16px;
@@ -11,7 +19,7 @@ body{
     font-size: 16px;
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    color:#5D5FEF ;
+   
 }
 #category-container{
     list-style: none;
@@ -84,4 +92,12 @@ body{
 }
 .ans{
     color: #5D5FEF;
+}
+
+.questionDiv{
+    background-color: beige;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: #5D5FEF 1px solid;
+    border-radius: 15px;
 }

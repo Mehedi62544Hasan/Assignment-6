@@ -2,6 +2,7 @@ const url = 'https://openapi.programming-hero.com/api/news/categories'
 fetch(url)
 .then(res => res.json())
 .then(data => nowsHeadline(data.data.news_category))
+.catch(error => console.log(error));
 
 nowsHeadline = (newsList) =>{
     console.log(newsList)
@@ -24,6 +25,7 @@ const newsClick = (category_id) =>{
     fetch(url)
     .then(res => res.json())
     .then(data => authorId(data.data))
+    .catch(error => console.log(error));
     
     const authorId = (persones) =>{
       // console.log(persones)
@@ -48,9 +50,9 @@ const newsClick = (category_id) =>{
         <img src="${persone.image_url}" class="img-fluid w-100 h-100 rounded-start" alt="...">
       </div>
 
-      <div class="col-md-8 ps-4">
+      <div class="col-md-8 p-3">
         <div class="card-body">
-          <h5 class="card-title mb-3">${persone.title}</h5>
+          <h5 class="card-title mb-3 fw-semibold">${persone.title}</h5>
           <p class="card-text"><small>${persone.details.slice(0, 300)}...</small> </p>
 
           <div class="footer-container d-flex justify-content-between align-items-center text-center">
@@ -65,7 +67,7 @@ const newsClick = (category_id) =>{
           <div>
          
 
-          <button onclick="detailsLoad('${persone._id}')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Read More <i class="fa fa-solid fa-arrow-right" ></i></button>
+          <button onclick="detailsLoad('${persone._id}')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">View More <i class="fa fa-solid fa-arrow-right" ></i></button>
 
           </div>
           </div>
@@ -98,12 +100,13 @@ toggolSpinner(false);
       fetch(url)
       .then(res =>res.json())
       .then(data => displayDetails(data.data[0]))
+      .catch(error => console.log(error));
      }
   
      const displayDetails = (data) =>{
       console.log(data);
       const modalName = document.getElementById('exampleModalLabel');
-      modalName.innerText = data.author.name;
+      modalName.innerText = data.author.name 
       const modalTaitel = document.getElementById('modalTaitel');
       modalTaitel.innerText = data.title;
 
