@@ -11,7 +11,7 @@ nowsHeadline = (newsList) =>{
     const div = document.createElement('div');
     
     div.innerHTML = `
-    <p onclick="newsClick('${news.category_id}')">${news.category_name}</p>
+    <p id="loaderId" onclick="newsClick('${news.category_id}')" class="fw-semibold">${news.category_name}</p>
     `;
     newsContainer.appendChild(div);
 
@@ -85,21 +85,6 @@ toggolSpinner(false);
 }
  
 
-                      // TOGOLSPINNER
-
-      const toggolSpinner = isLorder =>{
-    const lorder = document.getElementById('loader');
-    if(isLorder){
-        lorder.classList.remove('d-none');
-    }
-    else{
-        lorder.classList.add('d-none');
-    }
-    }
-
-
-     
-
     const modalFunction = modal1 =>{
         console.log(modal1);
         const modalTitel = document.getElementById('staticBackdropLabel');
@@ -123,7 +108,20 @@ toggolSpinner(false);
       modalTaitel.innerText = data.title;
 
      }
- 
+
+                   // TOGOLSPINNER
+
+  const toggolSpinner = isLorder =>{
+    const lorder = document.getElementById('loader')
+    if(isLorder){
+        lorder.classList.remove('d-none')
+    }
+    else{
+        lorder.classList.add('d-none')
+    }
+    }
+
+
      newsClick('08')
 
  
